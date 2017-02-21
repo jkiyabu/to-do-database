@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>To Do List</title>
+    </head>
+    <body>
+        <h1>{{ category.getName }}</h1>
+        <form action="/tasks" method="post">
+            <input type="hidden" value="{{category.getId()}}" name="category_id">
+            <label for="description">Enter a task</label>
+            <input type="text" name="description">
+            <button type="submit">Add</button>
+        </form>
+        {% if tasks is not empty %}
+            {% for task in tasks %}
+                <li>{{ task.getDescription }}</li>
+            {% endfor %}
+        {% endif %}
+        <a href="/">Back</a>
+    </body>
+</html>
